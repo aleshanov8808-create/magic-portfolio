@@ -1,0 +1,273 @@
+// 🌌 Создаём волшебные звёзды
+
+const stars = document.querySelector(".stars");
+
+for (let i = 0; i < 80; i++) {
+
+    const star = document.createElement("span");
+
+    star.style.position = "absolute";
+
+    star.style.width =
+        Math.random() * 3 + "px";
+
+    star.style.height =
+        star.style.width;
+
+    star.style.background = "white";
+
+    star.style.borderRadius = "50%";
+
+    star.style.left =
+        Math.random() * 100 + "%";
+
+    star.style.top =
+        Math.random() * 100 + "%";
+
+    star.style.opacity =
+        Math.random();
+
+    star.style.boxShadow =
+        "0 0 8px white";
+
+    star.style.animation =
+        `twinkle ${2 + Math.random() * 4}s ease-in-out infinite`;
+
+    stars.appendChild(star);
+}
+
+
+// 💫 Свет за курсором
+
+const glow = document.createElement("div");
+
+glow.style.position = "fixed";
+
+glow.style.width = "250px";
+glow.style.height = "250px";
+
+glow.style.borderRadius = "50%";
+
+glow.style.pointerEvents = "none";
+
+glow.style.background =
+    "radial-gradient(circle, rgba(150,180,255,0.15), transparent 70%)";
+
+glow.style.transform =
+    "translate(-50%, -50%)";
+
+glow.style.zIndex = "1";
+
+document.body.appendChild(glow);
+
+
+// ✨ Появление элементов при прокрутке
+
+const magicElements =
+    document.querySelectorAll(
+        ".section, .skill-card, .project-card"
+    );
+
+const magicObserver =
+    new IntersectionObserver(
+
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add(
+                        "magic-visible"
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.15
+        }
+
+    );
+
+
+magicElements.forEach((element) => {
+
+    element.classList.add(
+        "magic-hidden"
+    );
+
+    magicObserver.observe(element);
+
+});
+
+
+// 🌙 Луна
+
+const moon =
+    document.querySelector(".moon");
+
+
+// 🪄 Магический курсор
+
+const magicCursor =
+    document.createElement("div");
+
+magicCursor.className =
+    "magic-cursor";
+
+magicCursor.textContent =
+    "✦";
+
+document.body.appendChild(
+    magicCursor
+);
+
+
+// 🖱️ Основное движение мыши
+
+document.addEventListener(
+    "mousemove",
+    (event) => {
+
+        // 💫 Свет
+
+        glow.style.left =
+            event.clientX + "px";
+
+        glow.style.top =
+            event.clientY + "px";
+
+
+        // 🪄 Курсор
+
+        magicCursor.style.left =
+            event.clientX + "px";
+
+        magicCursor.style.top =
+            event.clientY + "px";
+
+
+        // 🌙 Луна
+
+        const x =
+            (event.clientX /
+                window.innerWidth - 0.5) * 20;
+
+        const y =
+            (event.clientY /
+                window.innerHeight - 0.5) * 20;
+
+        moon.style.setProperty(
+            "--moon-x",
+            `${x}px`
+        );
+
+        moon.style.setProperty(
+            "--moon-y",
+            `${y}px`
+        );
+
+    }
+);
+
+
+// ✨ Светящийся шлейф
+
+let lastParticleTime = 0;
+
+document.addEventListener(
+    "mousemove",
+    (event) => {
+
+        const now = Date.now();
+
+        // Ограничиваем количество частиц
+
+        if (
+            now - lastParticleTime < 50
+        ) {
+            return;
+        }
+
+        lastParticleTime = now;
+
+
+        // Создаём частицу
+
+        const particle =
+            document.createElement("span");
+
+        particle.style.position =
+            "fixed";
+
+        particle.style.left =
+            event.clientX + "px";
+
+        particle.style.top =
+            event.clientY + "px";
+
+        particle.style.width =
+            "7px";
+
+        particle.style.height =
+            "7px";
+
+        particle.style.borderRadius =
+            "50%";
+
+        particle.style.background =
+            "#ffffff";
+
+        particle.style.pointerEvents =
+            "none";
+
+        particle.style.zIndex =
+            "99998";
+
+        particle.style.transform =
+            "translate(-50%, -50%)";
+
+        particle.style.boxShadow =
+            "0 0 6px #ffffff, " +
+            "0 0 15px #9bbcff, " +
+            "0 0 25px #638cff";
+
+        document.body.appendChild(
+            particle
+        );
+
+
+        // 🌟 Исчезновение частицы
+
+        requestAnimationFrame(() => {
+
+            particle.style.transition =
+                "opacity 0.8s ease, " +
+                "transform 0.8s ease";
+
+            particle.style.opacity =
+                "0";
+
+            particle.style.transform =
+                `translate(
+                    ${Math.random() * 30 - 15}px,
+                    ${Math.random() * 30 - 15}px
+                ) scale(0.2)`;
+
+        });
+
+
+        // 🧹 Удаляем частицу
+
+        setTimeout(() => {
+
+            particle.remove();
+
+        }, 850);
+
+    }
+);
