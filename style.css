@@ -1,0 +1,814 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: #050816;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Главный экран */
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 50% 45%, #243b72 0%, #101936 25%, #050816 65%);
+}
+
+/* Луна */
+
+.moon {
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle at 35% 30%, #ffffff, #dbe8ff 45%, #9eb8e8 75%);
+
+    box-shadow:
+        0 0 40px #9bbcff,
+        0 0 100px rgba(130, 170, 255, 0.6),
+        0 0 180px rgba(100, 130, 255, 0.35);
+
+    top: 8%;
+    right: 8%;
+
+    opacity: 0.9;
+
+    animation: moonFloat 8s ease-in-out infinite;
+}
+
+@keyframes moonFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Звёзды */
+
+.stars {
+    position: fixed;
+    inset: 0;
+        z-index: 1;
+
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(circle, white 1px, transparent 1px),
+        radial-gradient(circle, #b8d0ff 1px, transparent 1px),
+        radial-gradient(circle, white 1px, transparent 1px);
+
+    background-size:
+        120px 120px,
+        180px 180px,
+        250px 250px;
+
+    background-position:
+        10px 20px,
+        60px 100px,
+        130px 50px;
+
+    opacity: 0.5;
+
+    animation: starsMove 30s linear infinite;
+}
+
+@keyframes starsMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-120px);
+    }
+}
+
+/* Центральная карточка */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(700px, 90%);
+
+    padding: 60px 40px;
+
+    text-align: center;
+
+    background: rgba(10, 18, 45, 0.55);
+
+    border: 1px solid rgba(180, 205, 255, 0.25);
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 0 60px rgba(100, 140, 255, 0.2),
+        inset 0 0 40px rgba(150, 180, 255, 0.05);
+}
+
+/* Маленький текст */
+
+.magic-text {
+    color: #b8caff;
+
+    letter-spacing: 5px;
+
+    font-size: 14px;
+
+    margin-bottom: 20px;
+
+    text-shadow: 0 0 15px #9bbcff;
+}
+
+/* Имя */
+
+.hero h1 {
+    font-size: clamp(70px, 12vw, 120px);
+
+    font-weight: normal;
+
+    margin-bottom: 5px;
+
+    background: linear-gradient(
+        120deg,
+        #ffffff,
+        #b9d0ff,
+        #ffffff
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow: 0 0 40px rgba(180, 210, 255, 0.4);
+}
+
+/* Профессия */
+
+.hero h2 {
+    font-size: 28px;
+
+    font-weight: normal;
+
+    color: #b6c9f5;
+
+    margin-bottom: 25px;
+}
+
+/* Описание */
+
+.description {
+    max-width: 500px;
+
+    margin: 0 auto 35px;
+
+    color: #c6d0e8;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+/* Кнопки */
+
+.buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.magic-button {
+    display: inline-block;
+
+    padding: 14px 28px;
+
+    border-radius: 50px;
+
+    color: white;
+
+    text-decoration: none;
+
+    border: 1px solid rgba(180, 205, 255, 0.5);
+
+    background: rgba(100, 130, 220, 0.2);
+
+    transition: all 0.3s ease;
+
+    box-shadow: 0 0 20px rgba(120, 160, 255, 0.15);
+}
+
+.magic-button:hover {
+    transform: translateY(-4px);
+
+    background: rgba(130, 160, 255, 0.35);
+
+    box-shadow:
+        0 0 25px rgba(150, 190, 255, 0.5),
+        0 0 50px rgba(100, 150, 255, 0.2);
+}
+
+.magic-button.secondary {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Нижние разделы */
+
+.section {
+    min-height: 60vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #050816,
+            #080d25
+        );
+}
+
+.section h2 {
+    font-size: 50px;
+
+    font-weight: normal;
+
+    margin-bottom: 20px;
+
+    color: #c9d9ff;
+
+    text-shadow: 0 0 25px rgba(150, 190, 255, 0.4);
+}
+
+.section p {
+    color: #aebbd6;
+
+    font-size: 18px;
+}
+
+/* Телефон */
+
+@media (max-width: 600px) {
+
+    .moon {
+        width: 260px;
+        height: 260px;
+
+        top: 5%;
+        right: -80px;
+    }
+
+    .hero-content {
+        padding: 45px 20px;
+    }
+
+    .magic-text {
+        font-size: 11px;
+        letter-spacing: 3px;
+    }
+
+    .hero h2 {
+        font-size: 22px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .section h2 {
+        font-size: 38px;
+    }
+}
+/* Мерцание звёзд */
+
+@keyframes twinkle {
+
+    0%, 100% {
+        opacity: 0.2;
+        transform: scale(0.7);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+}
+/* Секция обо мне */
+
+.about {
+    position: relative;
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(90, 120, 220, 0.18),
+            transparent 60%
+        ),
+        #080d25;
+}
+
+.about-card {
+    width: min(750px, 90%);
+
+    margin-top: 30px;
+
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    padding: 40px;
+
+    background: rgba(20, 30, 65, 0.55);
+
+    border: 1px solid rgba(180, 205, 255, 0.25);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 0 40px rgba(100, 140, 255, 0.12);
+
+    text-align: left;
+
+    transition: transform 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 0 50px rgba(120, 160, 255, 0.25);
+}
+
+.about-card p {
+    margin-bottom: 18px;
+
+    line-height: 1.7;
+
+    color: #c4cee5;
+}
+
+.about-card p:last-child {
+    margin-bottom: 0;
+}
+
+.about-icon {
+    min-width: 90px;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 42px;
+
+    color: #d7e3ff;
+
+    border: 1px solid rgba(190, 215, 255, 0.4);
+
+    background: rgba(130, 160, 255, 0.12);
+
+    box-shadow:
+        0 0 30px rgba(130, 170, 255, 0.3);
+
+    animation: magicFloat 4s ease-in-out infinite;
+}
+
+@keyframes magicFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .about-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+}
+/* Магические навыки */
+
+.skills {
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(90, 120, 220, 0.2),
+            transparent 65%
+        ),
+        #050816;
+}
+
+.skills-grid {
+    width: min(1000px, 90%);
+
+    margin-top: 40px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.skill-card {
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(40, 55, 110, 0.65),
+            rgba(10, 18, 45, 0.75)
+        );
+
+    border: 1px solid rgba(180, 205, 255, 0.25);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 0 30px rgba(100, 140, 255, 0.08);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-12px) scale(1.02);
+
+    border-color:
+        rgba(190, 215, 255, 0.6);
+
+    box-shadow:
+        0 0 35px rgba(120, 160, 255, 0.3),
+        0 0 80px rgba(100, 140, 255, 0.12);
+}
+
+.skill-icon {
+    width: 85px;
+    height: 85px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 38px;
+
+    background:
+        rgba(120, 150, 255, 0.12);
+
+    border:
+        1px solid rgba(190, 215, 255, 0.3);
+
+    box-shadow:
+        0 0 25px rgba(130, 170, 255, 0.2);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.skill-card:hover .skill-icon {
+    transform: rotate(8deg) scale(1.1);
+
+    box-shadow:
+        0 0 35px rgba(150, 190, 255, 0.5);
+}
+
+.skill-card h3 {
+    font-size: 25px;
+
+    font-weight: normal;
+
+    color: #d5e1ff;
+
+    margin-bottom: 12px;
+}
+
+.skill-card p {
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    color: #9eafd3;
+}
+
+
+/* Планшет */
+
+@media (max-width: 800px) {
+
+    .skills-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* Телефон */
+
+@media (max-width: 550px) {
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* Проекты */
+
+.projects {
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(100, 130, 230, 0.18),
+            transparent 65%
+        ),
+        #080d25;
+}
+
+.projects-grid {
+    width: min(1100px, 90%);
+
+    margin-top: 40px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.project-card {
+    padding: 35px 28px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(35, 50, 105, 0.7),
+            rgba(8, 15, 40, 0.8)
+        );
+
+    border:
+        1px solid rgba(180, 205, 255, 0.25);
+
+    border-radius: 28px;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 0 30px rgba(100, 140, 255, 0.08);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-12px);
+
+    border-color:
+        rgba(190, 215, 255, 0.6);
+
+    box-shadow:
+        0 0 40px rgba(120, 160, 255, 0.3),
+        0 0 90px rgba(100, 140, 255, 0.12);
+}
+
+.project-icon {
+    width: 90px;
+    height: 90px;
+
+    margin: 0 auto 22px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 40px;
+
+    background:
+        rgba(120, 150, 255, 0.12);
+
+    border:
+        1px solid rgba(190, 215, 255, 0.35);
+
+    box-shadow:
+        0 0 30px rgba(130, 170, 255, 0.2);
+}
+
+.project-card h3 {
+    font-size: 27px;
+
+    font-weight: normal;
+
+    color: #d5e1ff;
+
+    margin-bottom: 15px;
+}
+
+.project-card p {
+    color: #aebbd6;
+
+    line-height: 1.6;
+
+    font-size: 16px;
+
+    min-height: 80px;
+}
+
+.project-tags {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin: 22px 0;
+}
+
+.project-tags span {
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    color: #c9d8ff;
+
+    background:
+        rgba(120, 150, 255, 0.12);
+
+    border:
+        1px solid rgba(170, 200, 255, 0.2);
+}
+
+.project-button {
+    display: inline-block;
+
+    padding: 11px 22px;
+
+    border-radius: 30px;
+
+    color: white;
+
+    text-decoration: none;
+
+    border:
+        1px solid rgba(180, 205, 255, 0.4);
+
+    background:
+        rgba(100, 130, 220, 0.15);
+
+    transition: all 0.3s ease;
+}
+
+.project-button:hover {
+    transform: translateY(-3px);
+
+    background:
+        rgba(130, 160, 255, 0.3);
+
+    box-shadow:
+        0 0 25px rgba(140, 180, 255, 0.4);
+}
+
+
+/* Планшет */
+
+@media (max-width: 900px) {
+
+    .projects-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* Телефон */
+
+@media (max-width: 600px) {
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* Контакты */
+
+.contact {
+    min-height: 70vh;
+
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(100, 140, 240, 0.22),
+            transparent 60%
+        ),
+        #050816;
+}
+
+.contact-text {
+    max-width: 600px;
+
+    margin: 10px auto 35px;
+
+    color: #b5c2df;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+.contact-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    flex-wrap: wrap;
+}
+
+.footer-magic {
+    margin-top: 100px;
+
+    color: #7787ad;
+
+    font-size: 14px;
+
+    letter-spacing: 3px;
+}
