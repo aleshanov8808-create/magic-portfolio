@@ -68,10 +68,12 @@ body {
 
 /* Звёзды */
 
+/* 🌌 Волшебные звёзды */
+
 .stars {
     position: fixed;
     inset: 0;
-        z-index: 1;
+    z-index: 1;
 
     pointer-events: none;
 
@@ -86,15 +88,17 @@ body {
         250px 250px;
 
     background-position:
-        10px 20px,
-        60px 100px,
-        130px 50px;
+        calc(10px + var(--mouse-x, 0px))
+        calc(20px + var(--mouse-y, 0px)),
+
+        calc(60px + var(--mouse-x-2, 0px))
+        calc(100px + var(--mouse-y-2, 0px)),
+
+        calc(130px + var(--mouse-x-3, 0px))
+        calc(50px + var(--mouse-y-3, 0px));
 
     opacity: 0.5;
-
-    animation: starsMove 30s linear infinite;
 }
-
 @keyframes starsMove {
 
     from {
@@ -812,3 +816,301 @@ body {
 
     letter-spacing: 3px;
 }
+/* ✨ Магическое появление */
+
+.magic-hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.magic-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* ✨ Магическое свечение имени */
+
+.hero h1 {
+    animation: magicName 4s ease-in-out infinite;
+}
+
+@keyframes magicName {
+
+    0% {
+        text-shadow:
+            0 0 10px rgba(180, 205, 255, 0.2),
+            0 0 25px rgba(130, 160, 255, 0.1);
+    }
+
+    50% {
+        text-shadow:
+            0 0 15px rgba(190, 215, 255, 0.7),
+            0 0 40px rgba(130, 160, 255, 0.4),
+            0 0 80px rgba(100, 140, 255, 0.2);
+    }
+
+    100% {
+        text-shadow:
+            0 0 10px rgba(180, 205, 255, 0.2),
+            0 0 25px rgba(130, 160, 255, 0.1);
+    }
+
+}
+/* ✨ Магический блик карточек */
+
+.project-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 60%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(220, 235, 255, 0.18),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    transition: left 0.8s ease;
+
+    pointer-events: none;
+}
+
+.project-card:hover::before {
+    left: 140%;
+}
+/* ✨ Исправленный магический блик */
+
+.project-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::after {
+    content: "";
+
+    position: absolute;
+
+    top: -50%;
+    left: -100%;
+
+    width: 50%;
+    height: 200%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.35),
+        transparent
+    );
+
+    transform: rotate(20deg);
+
+    pointer-events: none;
+
+    opacity: 0;
+}
+
+/* ✨ Магический блик для карточек */
+
+.skill-card,
+.project-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card::after,
+.project-card::after {
+    content: "";
+
+    position: absolute;
+
+    top: -50%;
+    left: -100%;
+
+    width: 50%;
+    height: 200%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.35),
+        transparent
+    );
+
+    transform: rotate(20deg);
+
+    pointer-events: none;
+
+    opacity: 0;
+}
+
+.skill-card:hover::after,
+.project-card:hover::after {
+    opacity: 1;
+
+    animation: magicShine 0.9s ease-in-out;
+}
+
+@keyframes magicShine {
+
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 160%;
+    }
+
+}
+/* ✨ Блик на карточках навыков */
+
+.skill-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card::after {
+    content: "";
+
+    position: absolute;
+
+    top: -50%;
+    left: -100%;
+
+    width: 50%;
+    height: 200%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.35),
+        transparent
+    );
+
+    transform: rotate(20deg);
+
+    pointer-events: none;
+
+    opacity: 0;
+}
+
+.skill-card:hover::after {
+    opacity: 1;
+    animation: skillShine 0.9s ease-in-out;
+}
+
+@keyframes skillShine {
+
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 160%;
+    }
+
+}
+/* 🌙 Параллакс луны */
+
+.moon {
+    margin-left: var(--moon-x, 0px);
+    margin-top: var(--moon-y, 0px);
+    transition:
+        margin-left 0.4s ease-out,
+        margin-top 0.4s ease-out;
+}
+/* 🪄 Магические кнопки */
+
+.magic-button,
+.project-button {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* 🌊 Световая волна */
+
+.magic-button::before,
+.project-button::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.25),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+.magic-button:hover::before,
+.project-button:hover::before {
+    animation: buttonWave 0.8s ease-in-out;
+}
+
+@keyframes buttonWave {
+
+    0% {
+        left: -120%;
+    }
+
+    100% {
+        left: 150%;
+    }
+
+}
+
+/* ⚡ Вспышка при нажатии */
+
+.magic-button:active,
+.project-button:active {
+    transform: scale(0.94);
+
+    box-shadow:
+        0 0 20px rgba(180, 210, 255, 0.8),
+        0 0 45px rgba(130, 170, 255, 0.5),
+        0 0 80px rgba(100, 150, 255, 0.3);
+
+    transition: transform 0.08s ease;
+}
+
+
+
+
+
+    
+        
+    
+
+    
+    
+    
+

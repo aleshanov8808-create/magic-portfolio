@@ -55,3 +55,47 @@ document.addEventListener("mousemove", (event) => {
     glow.style.top = event.clientY + "px";
 
 });
+
+// ✨ Появление элементов при прокрутке
+
+const magicElements = document.querySelectorAll(
+    ".section, .skill-card, .project-card"
+);
+
+const magicObserver = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+                entry.target.classList.add("magic-visible");
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.15
+    }
+);
+
+magicElements.forEach((element) => {
+    element.classList.add("magic-hidden");
+    magicObserver.observe(element);
+});
+// 🌙 Луна реагирует на движение мыши
+
+const moon = document.querySelector(".moon");
+
+document.addEventListener("mousemove", (event) => {
+
+    const x =
+        (event.clientX / window.innerWidth - 0.5) * 20;
+
+    const y =
+        (event.clientY / window.innerHeight - 0.5) * 20;
+
+    moon.style.setProperty("--moon-x", `${x}px`);
+    moon.style.setProperty("--moon-y", `${y}px`);
+
+});
