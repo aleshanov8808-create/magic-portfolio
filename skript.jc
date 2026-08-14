@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // 🌌 Создаём волшебные звёзды
 
 const stars = document.querySelector(".stars");
@@ -271,3 +272,106 @@ document.addEventListener(
 
     }
 );
+=======
+// Создаём волшебные частицы
+
+const stars = document.querySelector(".stars");
+
+for (let i = 0; i < 80; i++) {
+
+    const star = document.createElement("span");
+
+    star.style.position = "absolute";
+    star.style.width = Math.random() * 3 + "px";
+    star.style.height = star.style.width;
+
+    star.style.background = "white";
+    star.style.borderRadius = "50%";
+
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+
+    star.style.opacity = Math.random();
+
+    star.style.boxShadow = "0 0 8px white";
+
+    star.style.animation = `
+        twinkle ${2 + Math.random() * 4}s ease-in-out infinite
+    `;
+
+    stars.appendChild(star);
+}
+
+
+// Двигаем свет за курсором
+
+const glow = document.createElement("div");
+
+glow.style.position = "fixed";
+glow.style.width = "250px";
+glow.style.height = "250px";
+glow.style.borderRadius = "50%";
+
+glow.style.pointerEvents = "none";
+
+glow.style.background =
+    "radial-gradient(circle, rgba(150,180,255,0.15), transparent 70%)";
+
+glow.style.transform = "translate(-50%, -50%)";
+
+glow.style.zIndex = "1";
+
+document.body.appendChild(glow);
+
+
+document.addEventListener("mousemove", (event) => {
+
+    glow.style.left = event.clientX + "px";
+    glow.style.top = event.clientY + "px";
+
+});
+
+// ✨ Появление элементов при прокрутке
+
+const magicElements = document.querySelectorAll(
+    ".section, .skill-card, .project-card"
+);
+
+const magicObserver = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+                entry.target.classList.add("magic-visible");
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.15
+    }
+);
+
+magicElements.forEach((element) => {
+    element.classList.add("magic-hidden");
+    magicObserver.observe(element);
+});
+// 🌙 Луна реагирует на движение мыши
+
+const moon = document.querySelector(".moon");
+
+document.addEventListener("mousemove", (event) => {
+
+    const x =
+        (event.clientX / window.innerWidth - 0.5) * 20;
+
+    const y =
+        (event.clientY / window.innerHeight - 0.5) * 20;
+
+    moon.style.setProperty("--moon-x", `${x}px`);
+    moon.style.setProperty("--moon-y", `${y}px`);
+
+});
+>>>>>>> 9e550e3c156a0c5e2f6d6aad53c50549a0592ffd
