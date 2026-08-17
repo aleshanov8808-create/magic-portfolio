@@ -1,188 +1,800 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Dmitry | Python Developer</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+>
 </head>
+
 
 <body>
 
-    <!-- Звёзды -->
-    <div class="stars"></div>
+    <!-- ========================================
+         ЖИВОЙ ФОН
+    ========================================= -->
 
-    <!-- Главный экран -->
-    <main class="hero">
+    <canvas id="particles"></canvas>
 
-        <div class="moon"></div>
+    <div class="background-glow"></div>
 
-        <div class="hero-content">
 
-            <p class="magic-text">✦ WELCOME TO MY WORLD ✦</p>
+    <!-- ========================================
+         НАВИГАЦИЯ
+    ========================================= -->
 
-            <h1>Dmitry</h1>
+    <header class="header">
 
-            <h2>Python Developer</h2>
+        <div class="logo">
+            &lt;D/&gt;
+        </div>
 
-            <p class="description">
-                Создаю проекты, изучаю технологии<br>
-                и превращаю идеи в код.
+
+        <nav>
+
+            <a href="#about">
+                Обо мне
+            </a>
+
+            <a href="#skills">
+                Навыки
+            </a>
+
+            <a href="#projects">
+                Проекты
+            </a>
+
+            <a href="#contact">
+                Контакты
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ========================================
+         ГЛАВНЫЙ ЭКРАН
+    ========================================= -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="code-label">
+                    &lt;developer /&gt;
+                </div>
+
+
+                <h1>
+
+                    Дмитрий
+
+                    <span>
+                        Python Developer
+                    </span>
+
+                </h1>
+
+
+                <p class="hero-description">
+
+                    Создаю приложения, изучаю
+                    программирование и превращаю
+                    идеи в работающий код.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#projects"
+                        class="button primary"
+                    >
+                        Мои проекты
+                    </a>
+
+
+                    <a
+                        href="#contact"
+                        class="button"
+                    >
+                        Связаться
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Кодовое окно -->
+
+            <div class="hero-card">
+
+                <div class="window-top">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+                <div class="code-window">
+
+                    <p>
+                        <span class="code-purple">
+                            class
+                        </span>
+
+                        <span class="code-blue">
+                            Developer
+                        </span>
+                        :
+                    </p>
+
+
+                    <p class="indent">
+
+                        <span class="code-purple">
+                            def
+                        </span>
+
+                        <span class="code-blue">
+                            create
+                        </span>():
+
+                    </p>
+
+
+                    <p class="indent-2">
+
+                        <span class="code-green">
+                            return
+                        </span>
+
+                        <span class="code-yellow">
+                            "something amazing"
+                        </span>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             ОБО МНЕ
+        ========================================= -->
+
+        <section
+            id="about"
+            class="section"
+        >
+
+            <div class="section-label">
+                // about_me
+            </div>
+
+
+            <h2>
+                Обо мне
+            </h2>
+
+
+            <div class="about-card">
+
+
+                <div class="terminal">
+
+                    <div class="terminal-top">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+
+                    <div class="terminal-code">
+
+                        <p>
+                            <span class="green">
+                                const
+                            </span>
+
+                            developer = {
+                        </p>
+
+
+                        <p>
+                            &nbsp;&nbsp;name:
+                            <span class="yellow">
+                                "Dmitry"
+                            </span>,
+                        </p>
+
+
+                        <p>
+                            &nbsp;&nbsp;role:
+                            <span class="yellow">
+                                "Python Developer"
+                            </span>,
+                        </p>
+
+
+                        <p>
+                            &nbsp;&nbsp;learning:
+                            <span class="yellow">
+                                "every day"
+                            </span>,
+                        </p>
+
+
+                        <p>
+                            &nbsp;&nbsp;passion:
+                            <span class="yellow">
+                                "coding"
+                            </span>
+                        </p>
+
+
+                        <p>
+                            };
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-text">
+
+                    <h3>
+                        Создаю. Изучаю. Развиваюсь.
+                    </h3>
+
+
+                    <p>
+
+                        Я изучаю Python и
+                        веб-разработку.
+
+                        Создаю свои проекты,
+                        экспериментирую с технологиями
+                        и постепенно превращаю знания
+                        в реальные приложения.
+
+                    </p>
+
+
+                    <p>
+
+                        Это портфолио — место,
+                        где я собираю свои работы
+                        и показываю свой путь
+                        в разработке.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+      <!-- ========================================
+     НАВЫКИ
+========================================= -->
+
+<section id="skills" class="section">
+
+    <div class="section-label">
+        // skills
+    </div>
+
+    <h2>
+        Навыки
+    </h2>
+
+    <div class="skills-grid">
+
+
+        <!-- Python -->
+
+        <div class="skill-card">
+
+            <div class="skill-icon python-icon">
+                <i class="fa-brands fa-python"></i>
+            </div>
+
+            <h3>
+                Python
+            </h3>
+
+            <p>
+                Основы программирования,
+                логика и создание приложений.
             </p>
 
-            <div class="buttons">
+        </div>
 
-                <a href="#projects" class="magic-button">
-                    ✨ Мои проекты
-                </a>
 
-                <a href="#contact" class="magic-button secondary">
-                    Связаться
+        <!-- HTML -->
+
+        <div class="skill-card">
+
+            <div class="skill-icon html-icon">
+                <i class="fa-brands fa-html5"></i>
+            </div>
+
+            <h3>
+                HTML5
+            </h3>
+
+            <p>
+                Создание структуры
+                современных веб-страниц.
+            </p>
+
+        </div>
+
+
+        <!-- CSS -->
+
+        <div class="skill-card">
+
+            <div class="skill-icon css-icon">
+                <i class="fa-brands fa-css3-alt"></i>
+            </div>
+
+            <h3>
+                CSS3
+            </h3>
+
+            <p>
+                Стилизация, анимации
+                и современные интерфейсы.
+            </p>
+
+        </div>
+
+
+        <!-- JavaScript -->
+
+        <div class="skill-card">
+
+            <div class="skill-icon js-icon">
+                <i class="fa-brands fa-js"></i>
+            </div>
+
+            <h3>
+                JavaScript
+            </h3>
+
+            <p>
+                Интерактивность и логика
+                веб-приложений.
+            </p>
+
+        </div>
+
+
+        <!-- Git -->
+
+        <div class="skill-card">
+
+            <div class="skill-icon git-icon">
+                <i class="fa-brands fa-git-alt"></i>
+            </div>
+
+            <h3>
+                Git
+            </h3>
+
+            <p>
+                Контроль версий
+                и работа с кодом.
+            </p>
+
+        </div>
+
+
+        <!-- GitHub -->
+
+        <div class="skill-card">
+
+            <div class="skill-icon github-icon">
+                <i class="fa-brands fa-github"></i>
+            </div>
+
+            <h3>
+                GitHub
+            </h3>
+
+            <p>
+                Хранение и публикация
+                проектов.
+            </p>
+
+        </div>
+
+
+        <!-- VS Code -->
+
+        <div class="skill-card">
+
+            <div class="skill-icon vscode-icon">
+                <i class="fa-solid fa-code"></i>
+            </div>
+
+            <h3>
+                VS Code
+            </h3>
+
+            <p>
+                Разработка и работа
+                с проектами.
+            </p>
+
+        </div>
+
+
+        <!-- SQL -->
+
+        <div class="skill-card">
+
+            <div class="skill-icon sql-icon">
+                <i class="fa-solid fa-database"></i>
+            </div>
+
+            <h3>
+                SQL
+            </h3>
+
+            <p>
+                Работа с базами данных
+                и запросами.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+        <!-- ========================================
+             ПРОЕКТЫ
+        ========================================= -->
+
+       <!-- ========================================
+     ПРОЕКТЫ
+========================================= -->
+
+<section id="projects" class="section">
+
+    <div class="section-label">
+        // projects
+    </div>
+
+    <h2>
+        Мои проекты
+    </h2>
+
+    <div class="projects-grid">
+
+
+        <!-- PROJECT 01 -->
+
+        <article class="project-card">
+
+            <div class="project-preview portfolio-preview">
+
+                <div class="preview-glow"></div>
+
+                <div class="preview-code">
+                    &lt;D/&gt;
+                </div>
+
+                <div class="preview-text">
+                    Python Developer
+                </div>
+
+            </div>
+
+
+            <div class="project-content">
+
+                <div class="project-top">
+
+                    <span class="project-number">
+                        01
+                    </span>
+
+                    <span class="project-status">
+                        ● Online
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Magic Portfolio
+                </h3>
+
+
+                <p>
+                    Персональный сайт-портфолио
+                    с живым фоном, анимациями
+                    и современным интерфейсом.
+                </p>
+
+
+                <div class="project-tags">
+
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+
+                </div>
+
+
+               <a
+    href="https://github.com/aleshanov8808-create/magic-portfolio"
+    class="project-link"
+    target="_blank"
+>
+    Смотреть на GitHub
+    <span>→</span>
+</a>
+
+            </div>
+
+        </article>
+
+
+        <!-- PROJECT 02 -->
+
+        <article class="project-card">
+
+            <div class="project-preview python-preview">
+
+                <div class="preview-glow"></div>
+
+                <div class="python-symbol">
+                    <i class="fa-brands fa-python"></i>
+                </div>
+
+                <div class="preview-text">
+                    Python Project
+                </div>
+
+            </div>
+
+
+            <div class="project-content">
+
+                <div class="project-top">
+
+                    <span class="project-number">
+                        02
+                    </span>
+
+                    <span class="project-status">
+                        ● Development
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Python Project
+                </h3>
+
+
+                <p>
+                    Учебный проект на Python
+                    для практики программирования
+                    и развития навыков.
+                </p>
+
+
+                <div class="project-tags">
+
+                    <span>Python</span>
+                    <span>Code</span>
+
+                </div>
+
+
+               <a
+    href="https://github.com/aleshanov8808-create/magic-portfolio"
+    class="project-link"
+    target="_blank"
+>
+    Смотреть на GitHub
+    <span>→</span>
+</a>
+
+            </div>
+
+        </article>
+
+
+        <!-- PROJECT 03 -->
+
+        <article class="project-card">
+
+            <div class="project-preview future-preview">
+
+                <div class="preview-glow"></div>
+
+                <div class="future-symbol">
+                    ✦
+                </div>
+
+                <div class="preview-text">
+                    Coming Soon
+                </div>
+
+            </div>
+
+
+            <div class="project-content">
+
+                <div class="project-top">
+
+                    <span class="project-number">
+                        03
+                    </span>
+
+                    <span class="project-status">
+                        ● Soon
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Future Project
+                </h3>
+
+
+                <p>
+                    Следующий проект появится
+                    здесь по мере развития
+                    моих навыков.
+                </p>
+
+
+                <div class="project-tags">
+
+                    <span>Coming soon</span>
+
+                </div>
+
+
+                <a
+                    href="#contact"
+                    class="project-link"
+                >
+                    Узнать больше
+                    <span>→</span>
                 </a>
 
             </div>
 
-        </div>
+        </article>
+
+
+    </div>
+
+</section>
+
+
+        <!-- ========================================
+             КОНТАКТЫ
+        ========================================= -->
+
+        <section
+            id="contact"
+            class="section contact"
+        >
+
+            <div class="section-label">
+                // contact
+            </div>
+
+
+            <h2>
+                Связаться со мной
+            </h2>
+
+
+            <p>
+
+                Если тебе понравился мой проект —
+                буду рад познакомиться
+                и пообщаться.
+
+            </p>
+
+
+            <div class="contact-buttons">
+
+
+                <a href="https://github.com/aleshanov8808-create" class="button primary" target="_blank">
+    🐙 GitHub
+</a>
+
+
+                <!-- TELEGRAM -->
+
+                <a
+                    href="https://t.me/dmitrii118808"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="button"
+                >
+                    ✈ Написать мне
+                </a>
+
+
+            </div>
+
+        </section>
 
     </main>
 
 
-    <!-- Обо мне -->
-    <section class="about section">
+    <!-- ========================================
+         FOOTER
+    ========================================= -->
 
-        <p class="magic-text">✦ THE STORY BEGINS ✦</p>
-
-        <h2>Обо мне</h2>
-
-        <div class="about-card">
-
-            <div class="about-icon">✦</div>
-
-            <div>
-
-                <p>
-                    Я изучаю Python и создаю свои первые проекты,
-                    постепенно превращая знания в реальные приложения.
-                </p>
-
-                <p>
-                    Мне нравится разбираться в том, как работают технологии,
-                    экспериментировать с кодом и создавать что-то своё.
-                </p>
-
-                <p>
-                    Сейчас я строю свой путь в мире разработки —
-                    шаг за шагом, проект за проектом.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- Навыки -->
-    <section class="skills section">
-
-        <p class="magic-text">✦ MY MAGIC ✦</p>
-
-        <h2>Навыки</h2>
-
-        <div class="skills-grid">
-
-            <div class="skill-card">
-                <span>🐍</span>
-                <h3>Python</h3>
-                <p>Основы программирования и создание приложений.</p>
-            </div>
-
-            <div class="skill-card">
-                <span>🌐</span>
-                <h3>HTML & CSS</h3>
-                <p>Создание красивых и адаптивных веб-страниц.</p>
-            </div>
-
-            <div class="skill-card">
-                <span>💻</span>
-                <h3>Git & GitHub</h3>
-                <p>Работа с версиями проектов и публикация кода.</p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- Проекты -->
-    <section id="projects" class="projects section">
-
-        <p class="magic-text">✦ MY PROJECTS ✦</p>
-
-        <h2>Мои проекты</h2>
-
-        <div class="project-card">
-
-            <div class="project-icon">🚀</div>
-
-            <div>
-                <h3>Magic Portfolio</h3>
-
-                <p>
-                    Мой первый проект-портфолио,
-                    созданный с помощью HTML, CSS и JavaScript.
-                </p>
-
-                <a
-                    href="https://github.com/aleshanov8808-create/magic-portfolio"
-                    target="_blank"
-                    class="magic-button"
-                >
-                    GitHub
-                </a>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- Контакты -->
-    <section id="contact" class="contact section">
-
-        <p class="magic-text">✦ LET'S CONNECT ✦</p>
-
-        <h2>Связаться со мной</h2>
-
-        <p>
-            Если хотите посмотреть мои проекты —
-            заходите на GitHub.
-        </p>
-
-        <a
-            href="https://github.com/aleshanov8808-create"
-            target="_blank"
-            class="magic-button"
-        >
-            🐙 GitHub
-        </a>
-
-    </section>
-
-
-    <!-- Подвал -->
     <footer>
 
         <p>
-            ✦ Спасибо, что заглянули в мой мир ✦
+            &lt;/&gt; Dmitry — Python Developer
+        </p>
+
+
+        <p>
+            Создано с ❤️ и большим количеством кода
         </p>
 
     </footer>
 
 
-    <script src="skript.js"></script>
+    <!-- ========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
