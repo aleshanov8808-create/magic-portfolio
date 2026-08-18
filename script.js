@@ -1,5 +1,5 @@
 // ========================================
-// ЖИВОЙ ФОН С ЧАСТИЦАМИ
+// ЖИВОЙ ФОН — ЧАСТИЦЫ
 // ========================================
 
 const canvas = document.getElementById("particles");
@@ -9,10 +9,11 @@ let particles = [];
 
 
 // ========================================
-// НАСТРОЙКА CANVAS
+// РАЗМЕР CANVAS
 // ========================================
 
 function resizeCanvas() {
+
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
@@ -28,22 +29,26 @@ function createParticles() {
 
     particles = [];
 
-    const amount = window.innerWidth < 700 ? 70 : 140;
+    const amount = window.innerWidth < 700 ? 80 : 150;
 
     for (let i = 0; i < amount; i++) {
 
         particles.push({
+
             x: Math.random() * canvas.width,
+
             y: Math.random() * canvas.height,
 
             size: Math.random() * 2 + 0.5,
 
-            speedX: (Math.random() - 0.5) * 0.35,
-            speedY: (Math.random() - 0.5) * 0.35,
+            speedX: (Math.random() - 0.5) * 0.4,
+
+            speedY: (Math.random() - 0.5) * 0.4,
 
             opacity: Math.random() * 0.7 + 0.2,
 
             phase: Math.random() * Math.PI * 2
+
         });
     }
 }
@@ -54,9 +59,13 @@ function createParticles() {
 // ========================================
 
 const mouse = {
+
     x: null,
+
     y: null,
+
     radius: 180
+
 };
 
 
@@ -77,7 +86,7 @@ window.addEventListener("mouseleave", () => {
 
 
 // ========================================
-// РИСУЕМ ЧАСТИЦЫ
+// ЧАСТИЦЫ
 // ========================================
 
 function drawParticles() {
@@ -93,11 +102,13 @@ function drawParticles() {
     particles.forEach((particle) => {
 
         // Движение
+
         particle.x += particle.speedX;
         particle.y += particle.speedY;
 
 
-        // Выход за границы
+        // Возвращаем частицы за границы экрана
+
         if (particle.x < 0) {
             particle.x = canvas.width;
         }
@@ -116,6 +127,7 @@ function drawParticles() {
 
 
         // Реакция на мышь
+
         if (mouse.x !== null && mouse.y !== null) {
 
             const dx = mouse.x - particle.x;
@@ -134,11 +146,13 @@ function drawParticles() {
 
                 particle.x += dx * force * 0.006;
                 particle.y += dy * force * 0.006;
+
             }
         }
 
 
         // Мерцание
+
         particle.phase += 0.025;
 
         const opacity =
@@ -146,7 +160,8 @@ function drawParticles() {
             Math.sin(particle.phase) * 0.2;
 
 
-        // Частица
+        // Рисуем частицу
+
         ctx.beginPath();
 
         ctx.arc(
@@ -157,8 +172,10 @@ function drawParticles() {
             Math.PI * 2
         );
 
+
         ctx.fillStyle =
             `rgba(196, 132, 252, ${opacity})`;
+
 
         ctx.shadowBlur = 12;
 
@@ -166,10 +183,12 @@ function drawParticles() {
             "rgba(168, 85, 247, 0.9)";
 
         ctx.fill();
+
     });
 
 
     ctx.shadowBlur = 0;
+
 }
 
 
@@ -200,14 +219,16 @@ function drawConnections() {
 
             const distance =
                 Math.sqrt(
-                    dx * dx + dy * dy
+                    dx * dx +
+                    dy * dy
                 );
 
 
             if (distance < maxDistance) {
 
                 const opacity =
-                    (1 - distance / maxDistance) * 0.16;
+                    (1 - distance / maxDistance)
+                    * 0.16;
 
 
                 ctx.beginPath();
@@ -229,6 +250,7 @@ function drawConnections() {
                 ctx.lineWidth = 1;
 
                 ctx.stroke();
+
             }
         }
     }
@@ -246,6 +268,34 @@ function animate() {
     drawConnections();
 
     requestAnimationFrame(animate);
+
+}
+
+
+// ========================================
+// ДВИЖЕНИЕ КОДОВОГО ОКНА
+// ========================================
+
+const heroCard =
+    document.querySelector(".hero-card");
+
+
+if (heroCard) {
+
+    window.addEventListener("mousemove", (event) => {
+
+        const x =
+            (event.clientX / window.innerWidth - 0.5) * 8;
+
+        const y =
+            (event.clientY / window.innerHeight - 0.5) * 8;
+
+
+        heroCard.style.transform =
+            `rotateY(${x}deg) rotateX(${-y}deg)`;
+
+    });
+
 }
 
 
@@ -256,13 +306,3 @@ function animate() {
 resizeCanvas();
 
 animate();
-
-
-// ========================================
-// ИЗМЕНЕНИЕ РАЗМЕРА ОКНА
-// ========================================
-
-window.addEventListener(
-    "resize",
-    resizeCanvas
-);
